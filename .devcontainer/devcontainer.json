@@ -1,0 +1,43 @@
+{
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"containerUser": "vscode",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "nix-dev",
+				"terminal.integrated.profiles.linux": {
+					"nix-dev": {
+						"args": [
+							"develop",
+							"/opt/nix-env",
+							"--command",
+							"nu"
+						],
+						"icon": "coffee",
+						"path": "nix"
+					},
+					"zsh": {
+						"args": [
+							"-l"
+						],
+						"path": "zsh"
+					}
+				}
+			}
+		}
+	},
+	"name": "${localWorkspaceFolderBasename}-nix",
+	"overrideCommand": true,
+	"privileged": false,
+	"runArgs": [
+		"--security-opt=no-new-privileges"
+	],
+	"containerEnv": {
+		"GIT_REPOSITORY": "https://github.com/Swelio/nix-config.git"
+	},
+	"updateRemoteUserUID": false,
+	"workspaceFolder": "/workspace",
+	"postStartCommand": "~/.local/init_clone.sh"
+}
