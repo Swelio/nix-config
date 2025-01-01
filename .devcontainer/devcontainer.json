@@ -6,18 +6,8 @@
 	"customizations": {
 		"vscode": {
 			"settings": {
-				"terminal.integrated.defaultProfile.linux": "nix-dev",
+				"terminal.integrated.defaultProfile.linux": "zsh",
 				"terminal.integrated.profiles.linux": {
-					"nix-dev": {
-						"args": [
-							"develop",
-							"/opt/nix-env",
-							"--command",
-							"nu"
-						],
-						"icon": "coffee",
-						"path": "nix"
-					},
 					"zsh": {
 						"args": [
 							"-l"

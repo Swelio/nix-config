@@ -32,9 +32,9 @@ RUN cd /opt/nix-env \
     && git add . \
     && git commit -a -m"chore: flakes ready" \
     && mkdir ~/.cache/starship \
-    && nix develop --build \
-    && nix develop -c nu -c 'starship init nu | save -f ~/.cache/starship/init.nu'
-RUN chmod 0700 /home/vscode/.local/init_clone.sh
+    && nix profile install
+# && nix develop -c nu -c 'starship init nu | save -f ~/.cache/starship/init.nu'
+# RUN chmod 0700 /home/vscode/.local/init_clone.sh
 
-WORKDIR /workspace
-CMD [ "nix", "develop", "/opt/nix-env", "--command", "nu" ]
+# WORKDIR /workspace
+# CMD [ "nix", "develop", "/opt/nix-env", "--command", "nu" ]
